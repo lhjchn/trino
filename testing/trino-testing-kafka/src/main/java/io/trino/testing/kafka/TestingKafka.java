@@ -24,6 +24,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.LongSerializer;
+import org.testcontainers.containers.Container.ExecResult;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.kafka.ConfluentKafkaContainer;
@@ -50,6 +51,7 @@ import java.util.stream.Stream;
 
 import static com.google.common.base.Preconditions.checkState;
 import static java.lang.String.format;
+import static java.lang.String.join;
 import static java.time.temporal.ChronoUnit.MILLIS;
 import static org.testcontainers.utility.MountableFile.forClasspathResource;
 
@@ -157,46 +159,47 @@ public final class TestingKafka
 
     private void createTopic(int partitions, int replication, String topic)
     {
-        try {
-            List<String> command = new ArrayList<>();
-            command.add("kafka-topics");
-            command.add("--partitions");
-            command.add(Integer.toString(partitions));
-            command.add("--replication-factor");
-            command.add(Integer.toString(replication));
-            command.add("--topic");
-            command.add(topic);
-
-            kafka.execInContainer(command.toArray(new String[0]));
-        }
-        catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        runKafkaTopicsCommand(
+                "--create",
+                "--if-not-exists",
+                "--bootstrap-server", "localhost:9093",
+                "--topic", topic,
+                "--partitions", Integer.toString(partitions),
+                "--replication-factor", Integer.toString(replication));
     }
 
     public void createTopicWithConfig(int partitions, int replication, String topic, boolean enableLogAppendTime)
     {
-        try {
-            List<String> command = new ArrayList<>();
-            command.add("kafka-topics");
-            command.add("--create");
-            command.add("--topic");
-            command.add(topic);
-            command.add("--partitions");
-            command.add(Integer.toString(partitions));
-            command.add("--replication-factor");
-            command.add(Integer.toString(replication));
-            command.add("--bootstrap-server");
-            command.add("localhost:9093");
-            if (enableLogAppendTime) {
-                command.add("--config");
-                command.add("message.timestamp.type=LogAppendTime");
-            }
+        List<String> args = new ArrayList<>(List.of(
+                "--create",
+                "--if-not-exists",
+                "--bootstrap-server", "localhost:9093",
+                "--topic", topic,
+                "--partitions", Integer.toString(partitions),
+                "--replication-factor", Integer.toString(replication)));
+        if (enableLogAppendTime) {
+            args.add("--config");
+            args.add("message.timestamp.type=LogAppendTime");
+        }
+        runKafkaTopicsCommand(args.toArray(String[]::new));
+    }
 
-            kafka.execInContainer(command.toArray(new String[0]));
+    private void runKafkaTopicsCommand(String... args)
+    {
+        try {
+            List<String> command = new ArrayList<>(List.of("kafka-topics"));
+            command.addAll(List.of(args));
+            ExecResult result = kafka.execInContainer(command.toArray(String[]::new));
+            checkState(
+                    result.getExitCode() == 0,
+                    "kafka-topics command failed (exit=%s): %s%nstdout:%n%s%nstderr:%n%s",
+                    result.getExitCode(),
+                    join(" ", command),
+                    result.getStdout(),
+                    result.getStderr());
         }
         catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to run kafka-topics command", e);
         }
     }
 
