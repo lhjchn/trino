@@ -1035,7 +1035,7 @@ jobs:
           cat <<'EOF' > matrix-junit.json
           {
             "include": [
-              {"bucket": "bucket-1", "suites": "SuiteMysql SuitePostgresql"},
+              {"bucket": "bucket-1", "suites": "SuiteMysql SuitePostgresql SuiteSqlServer"},
               {"bucket": "bucket-2", "suites": ""},
               {"bucket": "bucket-3", "suites": ""},
               {"bucket": "bucket-4", "suites": ""},
