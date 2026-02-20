@@ -1015,7 +1015,7 @@ jobs:
               {"bucket": "bucket-2", "suites": "SuiteCassandra SuiteClickhouse SuiteBlackHole SuiteAllConnectorsSmoke SuiteIgnite"},
               {"bucket": "bucket-3", "suites": "SuiteKafka SuiteLdap SuiteOauth2 SuiteClients SuiteJdbcKerberos SuiteTls SuiteLoki SuiteRanger"},
               {"bucket": "bucket-4", "suites": "SuiteHiveBasic SuiteHmsOnly SuiteHiveStorageFormats"},
-              {"bucket": "bucket-5", "suites": "SuiteHiveKerberos SuiteHdfsImpersonation SuiteTwoHives"},
+              {"bucket": "bucket-5", "suites": "SuiteHiveKerberos SuiteHdfsImpersonation SuiteTwoHives SuiteHive4"},
               {"bucket": "bucket-6", "suites": "SuiteHiveSpark SuiteHiveAlluxioCaching SuiteStorageFormatsDetailed SuiteHiveTransactional SuiteAuthorization SuiteFaultTolerant"},
               {"bucket": "bucket-7", "suites": ""}
             ]
