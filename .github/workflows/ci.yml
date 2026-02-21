@@ -899,13 +899,7 @@ jobs:
           config:
             - default
           suite:
-            - suite-1
-            - suite-2
-            - suite-3
-            # suite-4 does not exist
-            - suite-5
-            - suite-6-non-generic
-            - suite-7-non-generic
+            # suite-1..7 legacy aggregate wrappers retired; explicit suites are listed in pt-junit
             - suite-azure
             - suite-delta-lake-databricks133
             - suite-delta-lake-databricks143
