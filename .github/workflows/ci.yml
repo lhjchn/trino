@@ -1028,7 +1028,7 @@ jobs:
               {"bucket": "bucket-3", "suites": "SuiteKafka SuiteLdap SuiteOauth2 SuiteClients SuiteJdbcKerberos SuiteTls SuiteLoki SuiteRanger"},
               {"bucket": "bucket-4", "suites": ""},
               {"bucket": "bucket-5", "suites": ""},
-              {"bucket": "bucket-6", "suites": ""},
+              {"bucket": "bucket-6", "suites": "SuiteFaultTolerant"},
               {"bucket": "bucket-7", "suites": ""}
             ]
           }
