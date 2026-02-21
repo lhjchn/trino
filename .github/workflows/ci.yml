@@ -1028,7 +1028,7 @@ jobs:
           cat <<'EOF' > matrix-junit.json
           {
             "include": [
-              {"bucket": "bucket-1", "suites": "SuiteMysql SuitePostgresql SuiteSqlServer SuiteExasol"},
+              {"bucket": "bucket-1", "suites": "SuiteMysql SuitePostgresql SuiteSqlServer SuiteExasol SuiteFunctions"},
               {"bucket": "bucket-2", "suites": "SuiteCassandra SuiteClickhouse SuiteBlackHole"},
               {"bucket": "bucket-3", "suites": "SuiteKafka SuiteLdap SuiteOauth2 SuiteClients SuiteJdbcKerberos SuiteTls"},
               {"bucket": "bucket-4", "suites": ""},
