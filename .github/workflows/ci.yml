@@ -1023,7 +1023,7 @@ jobs:
           {
             "include": [
               {"bucket": "bucket-1", "suites": "SuiteMysql SuitePostgresql SuiteSqlServer SuiteExasol SuiteFunctions SuiteTpch SuiteTpcds"},
-              {"bucket": "bucket-2", "suites": "SuiteCassandra SuiteClickhouse SuiteBlackHole SuiteAllConnectorsSmoke"},
+              {"bucket": "bucket-2", "suites": "SuiteCassandra SuiteClickhouse SuiteBlackHole SuiteAllConnectorsSmoke SuiteIgnite"},
               {"bucket": "bucket-3", "suites": "SuiteKafka SuiteLdap SuiteOauth2 SuiteClients SuiteJdbcKerberos SuiteTls SuiteLoki SuiteRanger"},
               {"bucket": "bucket-4", "suites": ""},
               {"bucket": "bucket-5", "suites": ""},
