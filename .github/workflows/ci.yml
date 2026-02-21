@@ -906,7 +906,6 @@ jobs:
             - suite-delta-lake-databricks154
             - suite-delta-lake-databricks164
             - suite-delta-lake-databricks173
-            - suite-gcs
             - suite-parquet
           exclude:
             - suite: suite-azure
