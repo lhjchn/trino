@@ -1006,7 +1006,7 @@ jobs:
               {"bucket": "bucket-4", "suites": "SuiteHiveBasic SuiteHmsOnly SuiteHiveStorageFormats"},
               {"bucket": "bucket-5", "suites": "SuiteHiveKerberos SuiteHdfsImpersonation SuiteTwoHives SuiteHive4 SuiteHudi"},
               {"bucket": "bucket-6", "suites": "SuiteHiveSpark SuiteHiveAlluxioCaching SuiteStorageFormatsDetailed SuiteHiveTransactional SuiteAuthorization SuiteFaultTolerant"},
-              {"bucket": "bucket-7", "suites": "SuiteIceberg SuiteDeltaLakeOss SuiteCompatibility"}
+              {"bucket": "bucket-7", "suites": "SuiteIceberg SuiteDeltaLakeOss SuiteCompatibility SuiteGcs"}
             ]
           }
           EOF
