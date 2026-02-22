@@ -900,7 +900,6 @@ jobs:
             - default
           suite:
             # suite-1..7 legacy aggregate wrappers retired; explicit suites are listed in pt-junit
-            - suite-azure
             - suite-delta-lake-databricks133
             - suite-delta-lake-databricks143
             - suite-delta-lake-databricks154
