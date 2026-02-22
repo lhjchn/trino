@@ -1021,7 +1021,7 @@ jobs:
           cat <<'EOF' > matrix-junit.json
           {
             "include": [
-              {"bucket": "bucket-1", "suites": "SuiteMysql SuitePostgresql SuiteSqlServer SuiteExasol SuiteFunctions SuiteTpch SuiteTpcds"},
+              {"bucket": "bucket-1", "suites": "SuiteMysql SuitePostgresql SuiteSqlServer SuiteExasol SuiteFunctions SuiteTpch SuiteTpcds SuiteSnowflake"},
               {"bucket": "bucket-2", "suites": "SuiteCassandra SuiteClickhouse SuiteBlackHole SuiteAllConnectorsSmoke SuiteIgnite"},
               {"bucket": "bucket-3", "suites": "SuiteKafka SuiteLdap SuiteOauth2 SuiteClients SuiteJdbcKerberos SuiteTls SuiteLoki SuiteRanger"},
               {"bucket": "bucket-4", "suites": ""},
@@ -1207,6 +1207,7 @@ jobs:
               SuiteSnowflake)
                 required_env+=(SNOWFLAKE_URL SNOWFLAKE_USER SNOWFLAKE_PASSWORD SNOWFLAKE_DATABASE SNOWFLAKE_ROLE SNOWFLAKE_WAREHOUSE)
                 ;;
+<<<<<<< HEAD
               SuiteDeltaLakeDatabricks133)
                 required_env+=(S3_BUCKET AWS_REGION TRINO_AWS_ACCESS_KEY_ID TRINO_AWS_SECRET_ACCESS_KEY DATABRICKS_TOKEN DATABRICKS_133_JDBC_URL)
                 ;;
