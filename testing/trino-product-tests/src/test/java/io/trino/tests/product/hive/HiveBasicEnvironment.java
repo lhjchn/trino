@@ -315,6 +315,7 @@ public class HiveBasicEnvironment
     {
         return TrinoProductTestContainer.createConnection(trino, user, "hive", "default");
     }
+
     /**
      * Creates a JDBC connection to Trino without a default catalog/schema.
      * <p>
