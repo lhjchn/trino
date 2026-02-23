@@ -900,7 +900,6 @@ jobs:
             - default
           suite:
             # suite-1..7 legacy aggregate wrappers retired; explicit suites are listed in pt-junit
-            - suite-parquet
           exclude:
             - suite: suite-azure
               ignore exclusion if: >-
